@@ -27,6 +27,7 @@ body {
   font-family: monospace, sans-serif;
   color: $main-color;
   line-height: 1.25;
+  outline: 1px solid salmon;
 }
 
 h1 {
@@ -54,5 +55,13 @@ button {
     transition: all 0.3s ease-in-out;
     transform: translateY(-1px);
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+input {
+  border: 1px solid $main-color;
+
+  &:focus {
+    outline-color: $main-color;
   }
 }

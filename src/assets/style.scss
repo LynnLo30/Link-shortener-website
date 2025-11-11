@@ -27,7 +27,6 @@ body {
   font-family: monospace, sans-serif;
   color: $main-color;
   line-height: 1.25;
-  outline: 1px solid salmon;
 }
 
 h1 {
@@ -79,8 +78,21 @@ input {
 main {
   width: 80vw;
 
+  @include desktop {
+    display: flex;
+    width: clamp(40rem, 65%, 50rem);
+    border-radius: $radius;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
   >img.hero {
     display: none;
+
+    @include desktop {
+      display: block;
+      width: clamp(20rem, 50%, 25rem);
+      border-radius: $radius 0 0 $radius;
+    }
   }
 
   >* {
@@ -89,6 +101,13 @@ main {
 }
 
 .interaction-section {
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 0 $radius $radius 0;
+  }
 
   >h1 {
     text-align: center;
@@ -100,13 +119,34 @@ main {
     gap: 1.5rem;
     padding: 3rem 2rem;
 
+    @include desktop {
+      flex: auto;
+      gap: 2rem;
+    }
+
     >.action__btn {
       align-self: center;
       background-color: $accent-color;
+
+      @include desktop {
+        &:hover {
+          background-color: darken($accent-color, 5%);
+        }
+      }
     }
   }
 
   >.result-area {
     visibility: hidden;
+
+    @include desktop {
+      visibility: visible;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      border-top: 1px solid $main-color;
+      border-radius: 0 0 $radius 0;
+    }
   }
 }

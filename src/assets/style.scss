@@ -137,16 +137,22 @@ main {
   }
 
   >.result-area {
-    visibility: hidden;
+    text-align: center;
 
     @include desktop {
-      visibility: visible;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       padding: 1.5rem;
       border-top: 1px solid $main-color;
       border-radius: 0 0 $radius 0;
+    }
+
+    >.short-link {
+      margin-left: 0.5rem;
+      text-decoration: underline $accent-color solid;
+      text-underline-offset: 0.4rem;
     }
   }
 }
